@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
         `Xin chào ĐÔNG NAM,\nTôi tên: ${name}\nSĐT: ${phone}\nNội dung: ${message}`
       );
       // Open Zalo chat
-      window.open(`https://zalo.me/0967567535`, '_blank');
+      window.open(`https://zalo.me/0971771613`, '_blank');
 
       // Show success message
       const successMsg = document.createElement('div');
