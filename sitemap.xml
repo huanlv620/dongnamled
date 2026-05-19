@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://leddanhcadongnam.com/</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://leddanhcadongnam.com/assets/images/hero-tau-ca.jpg</image:loc>
+      <image:title>Đèn LED đánh cá Đông Nam - Tàu cá Việt Nam</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://leddanhcadongnam.com/assets/images/san-pham-hoan-thien.jpg</image:loc>
+      <image:title>Đèn LED đánh cá DN-1000W chính hãng Đông Nam</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://leddanhcadongnam.com/products.html</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://leddanhcadongnam.com/assets/images/thong-so-den.jpg</image:loc>
+      <image:title>Thông số kỹ thuật đèn LED đánh cá Đông Nam</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://leddanhcadongnam.com/assets/images/cau-tao-den.jpg</image:loc>
+      <image:title>Cấu tạo chi tiết đèn LED đánh cá</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://leddanhcadongnam.com/about.html</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://leddanhcadongnam.com/assets/images/xuong-san-xuat.jpg</image:loc>
+      <image:title>Xưởng sản xuất đèn LED đánh cá Đông Nam tại Nghệ An</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://leddanhcadongnam.com/contact.html</loc>
+    <lastmod>2026-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>

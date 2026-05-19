@@ -1,0 +1,23 @@
+# robots.txt for leddanhcadongnam.com
+# Công ty TNHH SX và DV TM Đông Nam - Đèn LED đánh cá
+
+User-agent: *
+Allow: /
+Disallow: /assets/js/
+Crawl-delay: 1
+
+# Google
+User-agent: Googlebot
+Allow: /
+Allow: /assets/images/
+
+# Bing
+User-agent: Bingbot
+Allow: /
+
+# Coc Coc (trình duyệt Việt Nam)
+User-agent: coccocbot
+Allow: /
+
+# Sitemap
+Sitemap: https://leddanhcadongnam.com/sitemap.xml
