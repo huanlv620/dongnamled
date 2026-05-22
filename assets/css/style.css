@@ -836,7 +836,7 @@ section {
   font-size: 1.25rem;
 }
 
-.tech-feature h4 {
+.tech-feature h3 {
   color: var(--color-white);
   font-size: 1.0625rem;
   margin-bottom: 0.375rem;
@@ -1245,7 +1245,7 @@ section {
   transform: translateY(-3px);
 }
 
-.footer-column h4 {
+.footer-column h3 {
   color: var(--color-white);
   font-family: var(--font-body);
   font-size: 1rem;
