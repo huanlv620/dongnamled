@@ -2,20 +2,24 @@
    ĐÔNG NAM LED - MAIN SCRIPTS
    ======================================== */
 
-document.addEventListener('DOMContentLoaded', function() {
+(function () {
+  'use strict';
 
-  // ===== Header scroll effect =====
+  // ===== Header scroll effect (throttled) =====
   const header = document.querySelector('.site-header');
   if (header) {
-    const handleScroll = () => {
-      if (window.scrollY > 30) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          header.classList.toggle('scrolled', window.scrollY > 30);
+          ticking = false;
+        });
+        ticking = true;
       }
     };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
   }
 
   // ===== Mobile menu toggle =====
@@ -23,12 +27,9 @@ document.addEventListener('DOMContentLoaded', function() {
   const navMenu = document.querySelector('.nav-menu');
   if (menuToggle && navMenu) {
     menuToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('open');
-      const isOpen = navMenu.classList.contains('open');
+      const isOpen = navMenu.classList.toggle('open');
       menuToggle.setAttribute('aria-expanded', isOpen);
     });
-
-    // Close menu when clicking a link
     navMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navMenu.classList.remove('open');
@@ -39,109 +40,88 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // ===== Smooth scroll for anchor links =====
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const targetId = this.getAttribute('href');
-      if (targetId === '#' || targetId === '') return;
-      const target = document.querySelector(targetId);
+    anchor.addEventListener('click', function (e) {
+      const id = this.getAttribute('href');
+      if (id === '#' || id === '') return;
+      const target = document.querySelector(id);
       if (target) {
         e.preventDefault();
-        const offset = 80;
-        const targetPos = target.getBoundingClientRect().top + window.scrollY - offset;
-        window.scrollTo({ top: targetPos, behavior: 'smooth' });
+        window.scrollTo({
+          top: target.getBoundingClientRect().top + window.scrollY - 80,
+          behavior: 'smooth'
+        });
       }
     });
   });
 
-  // ===== Fade-in animations on scroll =====
-  const fadeElements = document.querySelectorAll('.fade-in');
-  if (fadeElements.length && 'IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    });
+  // ===== Fade-in animations =====
+  const fadeEls = document.querySelectorAll('.fade-in');
+  if (fadeEls.length) {
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        entries => entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            observer.unobserve(e.target);
+          }
+        }),
+        { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+      );
+      fadeEls.forEach(el => observer.observe(el));
+    } else {
+      fadeEls.forEach(el => el.classList.add('visible'));
+    }
+  }
 
-    fadeElements.forEach(el => observer.observe(el));
-  } else {
-    // Fallback: show all immediately
-    fadeElements.forEach(el => el.classList.add('visible'));
+  // ===== Active nav highlight on scroll =====
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
+  if (sections.length && navLinks.length) {
+    let navTicking = false;
+    window.addEventListener('scroll', () => {
+      if (!navTicking) {
+        requestAnimationFrame(() => {
+          let current = '';
+          sections.forEach(s => {
+            if (window.scrollY >= s.offsetTop - 100) current = s.id;
+          });
+          navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
+          });
+          navTicking = false;
+        });
+        navTicking = true;
+      }
+    }, { passive: true });
   }
 
   // ===== Contact form handler =====
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+    contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
-      const formData = new FormData(this);
-      const name = formData.get('name') || '';
-      const phone = formData.get('phone') || '';
-      const message = formData.get('message') || '';
-
-      // Build Zalo message link with prefilled text
+      const data = new FormData(this);
+      const name = data.get('name') || '';
+      const phone = data.get('phone') || '';
+      const message = data.get('message') || '';
       const text = encodeURIComponent(
         `Xin chào ĐÔNG NAM,\nTôi tên: ${name}\nSĐT: ${phone}\nNội dung: ${message}`
       );
-      // Open Zalo chat
-      window.open(`https://zalo.me/0971771613`, '_blank');
+      window.open(`https://zalo.me/0967567535?text=${text}`, '_blank', 'noopener');
 
-      // Show success message
-      const successMsg = document.createElement('div');
-      successMsg.style.cssText = `
-        position: fixed; top: 100px; right: 20px; z-index: 1000;
-        background: #16a34a; color: white; padding: 1rem 1.5rem;
-        border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        font-weight: 500; max-width: 320px;
-      `;
-      successMsg.textContent = '✓ Cảm ơn bạn! Chúng tôi sẽ liên hệ sớm nhất.';
-      document.body.appendChild(successMsg);
-      setTimeout(() => successMsg.remove(), 4000);
-
+      const toast = document.createElement('div');
+      toast.setAttribute('role', 'status');
+      toast.style.cssText = [
+        'position:fixed', 'top:100px', 'right:20px', 'z-index:9999',
+        'background:#16a34a', 'color:#fff', 'padding:.875rem 1.375rem',
+        'border-radius:12px', 'box-shadow:0 10px 30px rgba(0,0,0,.2)',
+        'font-weight:500', 'max-width:300px', 'font-size:.9rem'
+      ].join(';');
+      toast.textContent = '✓ Cảm ơn bạn! Chúng tôi sẽ liên hệ sớm nhất.';
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 4000);
       this.reset();
     });
   }
 
-  // ===== Active nav highlight on scroll (for single-page sections) =====
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
-  if (sections.length && navLinks.length) {
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-        if (window.scrollY >= sectionTop) {
-          current = section.getAttribute('id');
-        }
-      });
-
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-          link.classList.add('active');
-        }
-      });
-    }, { passive: true });
-  }
-
-  // ===== Lazy load images (native) =====
-  const lazyImages = document.querySelectorAll('img[data-src]');
-  if (lazyImages.length && 'IntersectionObserver' in window) {
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const img = entry.target;
-          img.src = img.dataset.src;
-          img.removeAttribute('data-src');
-          observer.unobserve(img);
-        }
-      });
-    });
-    lazyImages.forEach(img => imageObserver.observe(img));
-  }
-
-});
+})();

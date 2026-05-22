@@ -70,14 +70,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Fonts -->
+    <!-- Fonts (chỉ load các weight thực sự dùng) -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,700&family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Bebas+Neue&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Be+Vietnam+Pro:wght@400;500;600;700&family=Bebas+Neue&display=swap"
       rel="stylesheet"
     />
 
     <!-- Styles -->
     <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- Preload ảnh LCP (hero) -->
+    <link rel="preload" as="image" href="assets/images/ngu-dan-2.jpg" fetchpriority="high" />
 
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
@@ -268,7 +271,9 @@
             <img
               src="assets/images/ngu-dan-2.jpg"
               alt="Ngư dân kiểm tra đèn LED Đông Nam trên tàu cá"
-              loading="eager"
+              width="780" height="520"
+              fetchpriority="high"
+              decoding="sync"
             />
             <div class="hero-badge">
               <div class="hero-badge-icon">⚓</div>
@@ -399,6 +404,9 @@
               <img
                 src="assets/images/san-pham-hoan-thien.jpg"
                 alt="Đèn LED đánh cá DN-1000W-T ánh sáng trắng"
+                width="600" height="450"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div class="product-info">
@@ -437,6 +445,9 @@
               <img
                 src="assets/images/chip-led-vang.jpg"
                 alt="Đèn LED đánh cá DN-1000W-V ánh sáng vàng"
+                width="600" height="450"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div class="product-info">
@@ -475,6 +486,9 @@
               <img
                 src="assets/images/chip-led-xanh.jpg"
                 alt="Đèn LED đánh cá DN-1000W-XL ánh sáng xanh lục lam"
+                width="600" height="450"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div class="product-info">
@@ -513,6 +527,9 @@
               <img
                 src="assets/images/vo-den-bac.jpg"
                 alt="Đèn LED đánh cá DN-1200W-T công suất 1200W"
+                width="600" height="450"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div class="product-info">
@@ -556,6 +573,9 @@
             <img
               src="assets/images/cau-tao-den.jpg"
               alt="Cấu tạo chi tiết đèn LED đánh cá Đông Nam"
+              width="680" height="510"
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <div class="fade-in">
@@ -642,30 +662,45 @@
             <img
               src="assets/images/ngu-dan-1.jpg"
               alt="Ngư dân cầm đèn LED Đông Nam trên tàu cá"
+              width="600" height="450"
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <div class="gallery-item fade-in">
             <img
               src="assets/images/tau-ca-cang.jpg"
               alt="Tàu cá NA-90463-TS sử dụng đèn LED Đông Nam"
+              width="600" height="450"
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <div class="gallery-item fade-in">
             <img
               src="assets/images/hop-san-pham.jpg"
               alt="Hộp đóng gói đèn LED đánh cá Đông Nam"
+              width="600" height="450"
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <div class="gallery-item fade-in">
             <img
               src="assets/images/lap-rap.jpg"
               alt="Đèn LED đánh cá được lắp ráp tại xưởng Đông Nam"
+              width="600" height="450"
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <div class="gallery-item fade-in">
             <img
               src="assets/images/kho-hang.jpg"
               alt="Kho hàng đèn LED đánh cá Đông Nam tại Nghệ An"
+              width="600" height="450"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </div>
@@ -791,7 +826,7 @@
       <div class="container">
         <div class="footer-grid">
           <div class="footer-brand">
-            <img src="assets/images/logo.jpg" alt="Logo Đông Nam LED" />
+            <img src="assets/images/logo.jpg" alt="Logo Đông Nam LED" width="160" height="56" loading="lazy" decoding="async" />
             <p>
               Công ty TNHH SX và DV TM Đông Nam - Nhà sản xuất đèn LED đánh cá
               chuyên nghiệp tại Việt Nam, đồng hành cùng ngư dân vươn khơi bám
@@ -944,6 +979,6 @@
       </a>
     </div>
 
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/main.js" defer></script>
   </body>
 </html>
