@@ -244,8 +244,11 @@ section {
 }
 
 .logo img {
-  height: 48px;
+  height: 52px;
   width: auto;
+  border-radius: 8px;
+  object-fit: contain;
+  display: block;
 }
 
 .nav-menu {
@@ -974,6 +977,220 @@ section {
 /* ========================================
    FOOTER
    ======================================== */
+/* ========================================
+   PRESS / MEDIA SECTION
+   ======================================== */
+.press-section {
+  background: var(--color-cream);
+  padding: 6rem 0 5rem;
+  text-align: center;
+}
+
+.press-section .eyebrow {
+  color: var(--color-ocean);
+}
+
+.press-section .section-title,
+.press-section .section-subtitle {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.press-section .section-subtitle {
+  color: var(--color-muted);
+  margin-bottom: 0;
+}
+
+.press-card {
+  background: var(--color-white);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(10, 37, 64, 0.08);
+  margin-top: 2.5rem;
+  text-align: left;
+}
+
+.press-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(10, 37, 64, 0.06);
+  color: var(--color-navy);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  margin-bottom: 1.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.press-badge-dot {
+  width: 8px;
+  height: 8px;
+  background: #e63946;
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: blink-dot 2s ease-in-out infinite;
+}
+
+@keyframes blink-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.press-card-grid {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 3rem;
+  align-items: start;
+}
+
+.press-meta {
+  font-size: 0.82rem;
+  color: var(--color-ocean);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.press-title {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  color: var(--color-navy);
+  margin: 0 0 1.25rem;
+  line-height: 1.45;
+}
+
+.press-quote {
+  border-left: 4px solid var(--color-gold);
+  padding: 0.5rem 0 0.5rem 1.25rem;
+  margin: 0 0 1.5rem;
+  font-style: italic;
+  color: #4a5568;
+  line-height: 1.8;
+  font-size: 0.96rem;
+}
+
+.press-read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-ocean);
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s var(--ease), gap 0.2s var(--ease);
+}
+.press-read-more:hover {
+  border-color: var(--color-ocean);
+  gap: 0.75rem;
+}
+
+.press-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.press-stat {
+  background: var(--color-cream);
+  border-radius: 14px;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  border: 1px solid rgba(10, 37, 64, 0.07);
+}
+
+.press-stat-num {
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  color: var(--color-gold);
+  line-height: 1;
+  margin-bottom: 0.35rem;
+  font-weight: 700;
+}
+
+.press-stat-label {
+  font-size: 0.78rem;
+  color: var(--color-navy);
+  font-weight: 500;
+  opacity: 0.7;
+  line-height: 1.4;
+}
+
+.press-endorsement {
+  margin-top: 2rem;
+  background: var(--color-navy);
+  border-radius: 16px;
+  padding: 2rem 2.5rem;
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.endorsement-body {
+  flex: 1;
+}
+
+.endorsement-quote {
+  color: rgba(255, 255, 255, 0.9);
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.75;
+  margin-bottom: 0.75rem;
+}
+
+.endorsement-author {
+  color: var(--color-gold);
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+}
+
+.endorsement-icon {
+  width: 56px;
+  height: 56px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-gold);
+  font-size: 1.75rem;
+}
+
+@media (max-width: 900px) {
+  .press-card-grid {
+    grid-template-columns: 1fr;
+  }
+  .press-stats {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .press-stat {
+    flex: 1;
+    min-width: 130px;
+  }
+}
+
+@media (max-width: 600px) {
+  .press-card { padding: 1.5rem; }
+  .press-endorsement {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+  .endorsement-icon { display: none; }
+}
+
+/* ========================================
+   SITE FOOTER
+   ======================================== */
 .site-footer {
   background: var(--color-navy-dark);
   color: rgba(255, 255, 255, 0.7);
@@ -988,9 +1205,14 @@ section {
 }
 
 .footer-brand img {
-  height: 50px;
+  height: 56px;
+  width: auto;
   margin-bottom: 1.25rem;
-  filter: brightness(0) invert(1);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.96);
+  padding: 6px 14px;
+  object-fit: contain;
+  display: block;
 }
 
 .footer-brand p {
@@ -1607,4 +1829,207 @@ section {
     padding: 0.85rem 1.5rem;
     font-size: 0.9rem;
   }
+}
+
+/* ========================================
+   WAVE DIVIDERS – Phân cách section
+   ======================================== */
+.wave-divider {
+  margin-top: -79px;
+  position: relative;
+  z-index: 4;
+  line-height: 0;
+  pointer-events: none;
+  display: block;
+}
+
+.wave-divider svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .wave-divider {
+    margin-top: -39px;
+  }
+  .wave-divider svg {
+    height: 40px;
+  }
+}
+
+/* ========================================
+   MARITIME ENHANCEMENTS
+   ======================================== */
+
+/* Hero wave pattern overlay */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='60'%3E%3Cpath d='M0,30 Q30,10 60,30 Q90,50 120,30 Q150,10 180,30 Q210,50 240,30' stroke='rgba(255,255,255,0.05)' fill='none' stroke-width='1.5'/%3E%3Cpath d='M0,50 Q30,30 60,50 Q90,70 120,50 Q150,30 180,50 Q210,70 240,50' stroke='rgba(255,255,255,0.03)' fill='none' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 240px 60px;
+  pointer-events: none;
+}
+
+/* Tăng chiều cao hero-visual để tỉ lệ đẹp hơn */
+@media (min-width: 1025px) {
+  .hero-visual {
+    aspect-ratio: 3 / 4;
+  }
+}
+
+/* Feature cards – icon đẹp hơn */
+.feature-icon {
+  font-size: 2rem;
+}
+
+/* Breadcrumb separator */
+.breadcrumb span:not(a) {
+  opacity: 0.5;
+}
+
+/* Product spec divider */
+.product-specs {
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+/* Gallery rows đồng đều hơn trên tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .gallery-grid {
+    grid-template-rows: 220px 180px;
+  }
+}
+
+/* CTA section: loại bỏ overflow trên mobile */
+@media (max-width: 768px) {
+  .cta-banner {
+    overflow: hidden;
+  }
+}
+
+/* Float btn – pulse mạnh hơn */
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.55), var(--shadow-lg);
+  }
+  60% {
+    box-shadow: 0 0 0 18px rgba(22, 163, 74, 0), var(--shadow-lg);
+  }
+}
+
+/* ========================================
+   PRODUCTS TABLE – Responsive
+   ======================================== */
+.spec-table-wrap {
+  background: var(--color-white);
+  padding: 2.5rem;
+  border-radius: 20px;
+  margin-bottom: 4rem;
+  border: 1px solid var(--color-border);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.spec-table-wrap h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+  font-size: 0.9rem;
+}
+
+.spec-table thead tr {
+  background: var(--color-navy);
+  color: var(--color-white);
+}
+
+.spec-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+
+.spec-table td {
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.spec-table tbody tr:nth-child(even) {
+  background: var(--color-gray-50);
+}
+
+.spec-table tbody tr:hover {
+  background: rgba(10, 61, 145, 0.04);
+}
+
+.spec-table .code {
+  font-weight: 600;
+  color: var(--color-ocean);
+}
+
+.spec-table-note {
+  margin-top: 1.25rem;
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+/* ========================================
+   ABOUT PAGE – Manufacturing section
+   ======================================== */
+.mfg-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.mfg-stat {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  background: rgba(244, 167, 44, 0.08);
+  border-radius: 16px;
+  border: 1px solid rgba(244, 167, 44, 0.2);
+}
+
+.mfg-stat-value {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--color-gold);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.mfg-stat-label {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ========================================
+   CONTACT FORM – Better focus state
+   ======================================== */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--color-gray-400);
+}
+
+.form-group select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
 }
