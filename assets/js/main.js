@@ -124,4 +124,26 @@
     });
   }
 
+  // ===== Product category filter =====
+  const filterTabs = document.querySelectorAll('.filter-tab');
+  const filterableCards = document.querySelectorAll(
+    '.products-grid .product-card[data-category]'
+  );
+  if (filterTabs.length && filterableCards.length) {
+    filterTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const filter = tab.dataset.filter;
+        filterTabs.forEach(t => {
+          const isActive = t === tab;
+          t.classList.toggle('active', isActive);
+          t.setAttribute('aria-selected', isActive);
+        });
+        filterableCards.forEach(card => {
+          const show = filter === 'all' || card.dataset.category === filter;
+          card.classList.toggle('is-hidden', !show);
+        });
+      });
+    });
+  }
+
 })();
