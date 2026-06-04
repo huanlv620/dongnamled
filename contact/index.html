@@ -2,6 +2,10 @@
 <html lang="vi">
   <head>
     <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-src https://www.google.com; form-action 'self'; upgrade-insecure-requests"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Liên Hệ Đông Nam LED | Đèn LED Đánh Cá - Hotline 0967 567 535</title>
@@ -82,7 +86,13 @@
       <div class="container">
         <nav class="nav-wrapper" aria-label="Điều hướng chính">
           <a href="/" class="logo" aria-label="Đông Nam LED - Trang chủ">
-            <img src="/assets/images/logo.jpg" alt="Logo Đông Nam LED" />
+            <img
+              src="/assets/images/logo.jpg"
+              alt="Logo Đông Nam LED"
+              width="400"
+              height="229"
+              decoding="async"
+            />
           </a>
           <ul class="nav-menu">
             <li><a href="/">Trang chủ</a></li>
@@ -267,7 +277,7 @@
                   <a
                     href="https://zalo.me/0967567535"
                     target="_blank"
-                    rel="noopener"
+                    rel="noopener noreferrer"
                     >Chat ngay qua Zalo</a
                   >
                 </div>
@@ -455,17 +465,41 @@
           </div>
         </div>
 
-        <!-- Map -->
+        <!--
+          Map facade: KHÔNG nhúng Google Maps khi tải trang để tránh
+          third-party cookies. Iframe chỉ được chèn khi người dùng bấm.
+        -->
         <div class="map-container fade-in">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3769.2893643178813!2d105.64071827520699!3d19.13880688207885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTnCsDA4JzE5LjciTiAxMDXCsDM4JzM1LjkiRQ!5e0!3m2!1svi!2s!4v1764555452642!5m2!1svi!2s"
-            width="100%"
-            height="450"
-            allowfullscreen
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Bản đồ vị trí Đông Nam LED tại Quỳnh Lưu, Nghệ An"
-          ></iframe>
+          <div
+            class="map-facade"
+            id="map-facade"
+            data-map-src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3769.2893643178813!2d105.64071827520699!3d19.13880688207885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTnCsDA4JzE5LjciTiAxMDXCsDM4JzM1LjkiRQ!5e0!3m2!1svi!2s!4v1764555452642!5m2!1svi!2s"
+            data-map-title="Bản đồ vị trí Đông Nam LED tại Quỳnh Lưu, Nghệ An"
+          >
+            <div class="map-facade-inner">
+              <svg
+                aria-hidden="true"
+                focusable="false"
+                width="40"
+                height="40"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              <strong>Xem bản đồ vị trí Đông Nam LED</strong>
+              <span>QL48B, Xã Quỳnh Lưu, Tỉnh Nghệ An</span>
+              <button type="button" class="btn btn-primary map-facade-btn">
+                Tải bản đồ Google Maps
+              </button>
+              <small>Khi tải, Google có thể đặt cookie trên trình duyệt của bạn.</small>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -492,7 +526,7 @@
               <a
                 href="https://zalo.me/0967567535"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 class="social-link"
                 aria-label="Zalo"
               >
@@ -605,7 +639,7 @@
       <a
         href="https://zalo.me/0967567535"
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
         class="float-btn zalo"
         aria-label="Chat Zalo"
       >

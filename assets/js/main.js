@@ -124,6 +124,26 @@
     });
   }
 
+  // ===== Google Maps facade (tải theo yêu cầu, không đặt cookie bên thứ ba cho tới khi bấm) =====
+  const mapFacade = document.getElementById('map-facade');
+  if (mapFacade) {
+    const loadMap = () => {
+      const src = mapFacade.dataset.mapSrc;
+      if (!src) return;
+      const iframe = document.createElement('iframe');
+      iframe.src = src;
+      iframe.width = '100%';
+      iframe.height = '450';
+      iframe.loading = 'lazy';
+      iframe.allowFullscreen = true;
+      iframe.referrerPolicy = 'no-referrer-when-downgrade';
+      iframe.title = mapFacade.dataset.mapTitle || 'Bản đồ';
+      iframe.style.border = '0';
+      mapFacade.replaceWith(iframe);
+    };
+    mapFacade.addEventListener('click', loadMap);
+  }
+
   // ===== Product category filter =====
   const filterTabs = document.querySelectorAll('.filter-tab');
   const filterableCards = document.querySelectorAll(

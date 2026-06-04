@@ -1698,6 +1698,50 @@ section {
   border: none;
 }
 
+/* Map facade (click-to-load, tránh third-party cookies khi tải trang) */
+.map-facade {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  background: linear-gradient(135deg, #0a2540 0%, #0a3d91 100%);
+  color: #fff;
+}
+
+.map-facade-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  max-width: 420px;
+}
+
+.map-facade-inner svg {
+  color: #f4a72c;
+}
+
+.map-facade-inner strong {
+  font-size: 1.15rem;
+}
+
+.map-facade-inner span {
+  opacity: 0.85;
+}
+
+.map-facade-btn {
+  margin-top: 0.75rem;
+}
+
+.map-facade-inner small {
+  margin-top: 0.25rem;
+  font-size: 0.78rem;
+  opacity: 0.7;
+}
+
 /* ========================================
    ANIMATIONS
    ======================================== */
