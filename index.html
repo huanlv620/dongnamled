@@ -94,7 +94,8 @@
     <link
       rel="preload"
       as="image"
-      href="assets/images/ngu-dan-2.jpg"
+      href="assets/images/ngu-dan-2.webp"
+      type="image/webp"
       fetchpriority="high"
     />
 
@@ -233,7 +234,7 @@
     <section class="hero" id="trang-chu">
       <div class="container">
         <div class="hero-grid">
-          <div class="hero-content fade-in">
+          <div class="hero-content">
             <span class="eyebrow">LED Đông Nam · Made By Vietnam</span>
             <h1 class="hero-title">
               Đèn LED Tàu Cá <span class="highlight">Chuyên Nghiệp</span> – Bền
@@ -283,23 +284,22 @@
             </div>
           </div>
 
-          <div class="hero-visual fade-in">
-            <img
-              src="assets/images/ngu-dan-2.jpg"
-              alt="Ngư dân kiểm tra đèn LED Đông Nam trên tàu cá"
-              width="780"
-              height="520"
-              fetchpriority="high"
-              decoding="sync"
-            />
-            <!-- <img
-              src="./assets/images/tong-hop.jpg"
-              alt="Ngư dân kiểm tra đèn LED Đông Nam trên tàu cá"
-              width="780"
-              height="520"
-              fetchpriority="high"
-              decoding="sync"
-            /> -->
+          <div class="hero-visual">
+            <picture>
+              <source
+                srcset="assets/images/ngu-dan-2.webp"
+                type="image/webp"
+              />
+              <img
+                src="assets/images/ngu-dan-2.jpg"
+                alt="Ngư dân kiểm tra đèn LED Đông Nam trên tàu cá"
+                width="780"
+                height="520"
+                fetchpriority="high"
+                decoding="async"
+              />
+            </picture>
+
             <div class="hero-badge">
               <div class="hero-badge-icon">⚓</div>
               <div class="hero-badge-text">
@@ -465,7 +465,7 @@
             <div class="product-image">
               <span class="product-tag">Bán chạy</span>
               <img
-                src="assets/images/san-pham-hoan-thien.jpg"
+                src="assets/images/san-pham-hoan-thien.webp"
                 alt="Đèn LED đánh cá DN-1000W-T ánh sáng trắng"
                 width="600"
                 height="450"
@@ -507,7 +507,7 @@
             <div class="product-image">
               <span class="product-tag">Phổ biến</span>
               <img
-                src="assets/images/chip-led-vang.jpg"
+                src="assets/images/chip-led-vang.webp"
                 alt="Đèn LED đánh cá DN-1000W-V ánh sáng vàng"
                 width="600"
                 height="450"
@@ -549,7 +549,7 @@
             <div class="product-image">
               <span class="product-tag">Mới</span>
               <img
-                src="assets/images/chip-led-xanh.jpg"
+                src="assets/images/chip-led-xanh.webp"
                 alt="Đèn LED đánh cá DN-1000W-XL ánh sáng xanh lục lam"
                 width="600"
                 height="450"
@@ -591,7 +591,7 @@
             <div class="product-image">
               <span class="product-tag">Công suất cao</span>
               <img
-                src="assets/images/vo-den-bac.jpg"
+                src="assets/images/vo-den-bac.webp"
                 alt="Đèn LED đánh cá DN-1200W-T công suất 1200W"
                 width="600"
                 height="450"
@@ -633,7 +633,7 @@
             <div class="product-image">
               <span class="product-tag">12V DC</span>
               <img
-                src="assets/images/hop-san-pham.jpg"
+                src="assets/images/hop-san-pham.webp"
                 alt="Đèn LED đánh cá DN-50W-DC nguồn 12V DC"
                 width="600"
                 height="450"
@@ -675,7 +675,7 @@
             <div class="product-image">
               <span class="product-tag">12V DC</span>
               <img
-                src="assets/images/dc-100w.jpg"
+                src="assets/images/dc-100w.webp"
                 alt="Đèn LED đánh cá DN-100W-DC nguồn 12V DC"
                 width="600"
                 height="450"
@@ -717,7 +717,7 @@
             <div class="product-image">
               <span class="product-tag">12V DC</span>
               <img
-                src="assets/images/dc-150w.jpg"
+                src="assets/images/dc-150w.webp"
                 alt="Đèn LED đánh cá DN-150W-DC nguồn 12V DC"
                 width="600"
                 height="450"
@@ -764,7 +764,7 @@
         <div class="tech-grid">
           <div class="tech-image fade-in">
             <img
-              src="assets/images/hero-tau-ca.jpg"
+              src="assets/images/hero-tau-ca.webp"
               alt="Cấu tạo chi tiết đèn LED đánh cá Đông Nam"
               width="680"
               height="510"
@@ -861,7 +861,7 @@
         <div class="gallery-grid">
           <div class="gallery-item fade-in">
             <img
-              src="assets/images/ngu-dan-1.jpg"
+              src="assets/images/ngu-dan-1.webp"
               alt="Ngư dân cầm đèn LED Đông Nam trên tàu cá"
               width="600"
               height="450"
@@ -871,7 +871,7 @@
           </div>
           <div class="gallery-item fade-in">
             <img
-              src="assets/images/tau-ca-cang.jpg"
+              src="assets/images/tau-ca-cang.webp"
               alt="Tàu cá NA-90463-TS sử dụng đèn LED Đông Nam"
               width="600"
               height="450"
@@ -881,7 +881,7 @@
           </div>
           <div class="gallery-item fade-in">
             <img
-              src="assets/images/hop-san-pham.jpg"
+              src="assets/images/hop-san-pham.webp"
               alt="Hộp đóng gói đèn LED đánh cá Đông Nam"
               width="600"
               height="450"
@@ -891,7 +891,7 @@
           </div>
           <div class="gallery-item fade-in">
             <img
-              src="assets/images/lap-rap.jpg"
+              src="assets/images/lap-rap.webp"
               alt="Đèn LED đánh cá được lắp ráp tại xưởng Đông Nam"
               width="600"
               height="450"
@@ -901,7 +901,7 @@
           </div>
           <div class="gallery-item fade-in">
             <img
-              src="assets/images/kho-hang.jpg"
+              src="assets/images/kho-hang.webp"
               alt="Kho hàng đèn LED đánh cá Đông Nam tại Nghệ An"
               width="600"
               height="450"

@@ -77,14 +77,23 @@
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
   if (sections.length && navLinks.length) {
+    // Cache vị trí section để tránh forced reflow (đọc offsetTop trong scroll).
+    let offsets = [];
+    const measure = () => {
+      offsets = Array.from(sections, s => ({ id: s.id, top: s.offsetTop }));
+    };
+    measure();
+    window.addEventListener('load', measure);
+    window.addEventListener('resize', measure, { passive: true });
     let navTicking = false;
     window.addEventListener('scroll', () => {
       if (!navTicking) {
         requestAnimationFrame(() => {
+          const y = window.scrollY;
           let current = '';
-          sections.forEach(s => {
-            if (window.scrollY >= s.offsetTop - 100) current = s.id;
-          });
+          for (const o of offsets) {
+            if (y >= o.top - 100) current = o.id;
+          }
           navLinks.forEach(link => {
             link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
           });
